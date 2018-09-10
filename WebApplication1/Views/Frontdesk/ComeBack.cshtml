@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+@model IEnumerable<Model.Evaluation>
+@using Model
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ComeBack</title>
+    <link href="~/ProducrCss/UpdatePro.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+   <script type="text/javascript">
+       $(function () {
+
+           $("#smb").click(function () {
+               var replyContent = $("#Ereply").val();
+               if (replyContent == "" || replyContent == "请输入回复内容") {
+                   alert("请输入回复内容!");
+                   return false;
+               }
+           })
+
+           $("#fq").click(function () {
+               window.location.href = "../Frontdesk/feedback_list";
+           })
+       })
+   </script>
+    <style type="text/css">
+        .fq {
+        background: #5e77aa;
+    border: 0;
+    line-height: 20px;
+    padding: 0px 10px;
+    overflow: visible;
+    color: #fff;
+    font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+@foreach (Evaluation item in Model)
+{
+    <div>
+        <div class="main">
+            <h2>回复留言</h2>
+            <div class="manage">
+@using (Html.BeginForm("UpdateComeBack", "Frontdesk", FormMethod.Post))
+{
+                <form action="manage-result.html">
+                    <table class="form">
+                        <tr>
+                            <td class="field">留言ID：</td>
+                            <td><input type="text" class="text" name="Eid" value="@item.Eid" readonly="readonly" />
+                                <input type="text" name="GoodsID" value="@item.GoodsID" hidden="hidden"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">留言姓名：</td>
+                            <td><input type="text" class="text" name="UserName" value="@item.UserName" readonly="readonly" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">留言内容：</td>
+                            <td><input type="text" class="text" name="EContent" value="@item.EContent" readonly="readonly"/></td>
+                        </tr>
+                        <tr>
+                            <td class="field">回复内容：</td>
+                            <td><textarea name="Ereply" id="Ereply">@if (item.Ereply == null){Html.Label("请输入回复内容");}else {@item.Ereply}</textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" id="smb" name="submit" value="回 复"  /> &nbsp;&nbsp;<input type="button" id="fq" name="submit"  class="fq" value="放弃回复" /></td>
+                           
+                        </tr>
+                    </table>
+                </form>
+    }
+            </div>
+        </div>
+    </div>}
+</body>
+</html>

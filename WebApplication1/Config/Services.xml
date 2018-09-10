@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects>
+  <!--业务逻辑层的信息-->
+  <object name="UserServices" type="BLL.UserServices,BLL" singleton="false">
+  </object>
+
+  <object name="KeeperServices" type="BLL.KeeperServices,BLL" singleton="false">
+  </object>
+
+  <object name="TypeServices" type="BLL.TypeServices,BLL" singleton="false">
+    
+  </object>
+
+  <object name="OrderServices" type="BLL.OrderServices,BLL" singleton="false">
+  </object>
+
+
+  <object name="StateServices" type="BLL.StateServices,BLL" singleton="false">
+  </object>
+
+  <object name="SizeServices" type="BLL.SizeServices,BLL" singleton="false">
+  </object>
+
+  <object name="EvaluationServices" type="BLL.EvaluationServices,BLL" singleton="false">
+  </object>
+</objects>
+
+

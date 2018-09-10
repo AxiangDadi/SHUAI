@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>product_category</title>
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProCategory.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProductManager.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function Update(id) {
+            window.location.href = "../Frontdesk/UpdatePro?GoodsID=" + id;
+        }
+
+        function deleteOne(id) {
+            var msg = "您真的确定要删除吗?";
+            if (confirm(msg) == true) {
+                window.location.href = "../Frontdesk/DelectGoods?GoodsID=" + id;
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="manage">
+        <table class="list">
+            <tr>
+                <th>编号</th>
+                <th style="width: 800px;">商品名称</th>
+                <th>价格</th>
+                <th>操作</th>
+            </tr>
+            @foreach (Model.Goods item in ViewData.Model)
+            {
+            <tr>
+                <td class="first w4 c">@item.GoodsID</td>
+                <td class="thumb" style="    text-align: initial;padding-left: 270px;"><img src="~/@item.GoodsPic"  style="width:50px" height="50"/><a href="product-view.html" target="_blank">@item.GoodsName</a></td>   
+                <td>￥@item.GoodsPrice</td>
+                 <td class="w1 c"><a href="#" onclick="Update('@item.GoodsID')">修改</a> <a href="#" onclick="deleteOne('@item.GoodsID')">删除</a></td>
+            </tr>
+            }
+        </table>
+        <div id="pageDiv">
+            <div id="leftPage">共有120条记录，当前第1/10页</div>
+            <div id="rightPage">
+
+                <input type="image" src="~/images/first.gif" id="first" />&nbsp;&nbsp;
+                <input type="image" src="~/images/back.gif" id="back" />&nbsp;&nbsp;
+                <input type="image" src="~/images/next.gif" id="next" />&nbsp;&nbsp;
+                <input type="image" src="~/images/last.gif" id="last" />&nbsp;&nbsp;
+                转到第<input type="text" id="ssas" size="1" />&nbsp;&nbsp;<input type="image" src="~/images/go.gif" id="tz" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿.manage {
+    padding-left:100px;
+    overflow: hidden;
+}
+.main h2 {
+    font-size: 14px;
+    line-height: 30px;
+    background: url(../images/bg.png) -230px -100px no-repeat;
+    border-bottom: 2px solid #B8B8B8;
+    padding-left: 25px;
+}
+tr,td{
+    font-size:12px;
+}
+#smb {
+ background:#5e77aa;
+ border: 0;
+    line-height: 20px;
+    padding: 0px 10px;
+    overflow: visible;
+    color: #fff;
+     font-size: 12px;
+}
+.manage .form td {
+    padding: 5px 2px;
+}
+.manage .form td input.text {
+    border: 1px solid #ccc;
+    padding: 4px;
+    vertical-align: middle;
+}
+.manage .form td textarea {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 4px;
+    height: 80px;
+}
+

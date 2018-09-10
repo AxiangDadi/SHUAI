@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+@using System.Data;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateAdmin</title>
+
+    <link href="~/ProducrCss/UpdatePro.css" rel="stylesheet" />
+ 
+</head>
+<body>
+    <div>
+        <div class="main">
+            <h2>修改管理员信息</h2>
+            <div class="manage">
+                        @using (Html.BeginForm("updateGuanliyuan", "Frontdesk", FormMethod.Post))
+               {
+                    <table class="form">
+                        @foreach (DataRow item in @Model.Rows)
+                        {
+                        <tr>
+                            <td class="field">用户名：</td>
+                            
+                            <td>
+                                <input type="text" class="text" name="KID" value="@item["KID"]"  hidden="hidden"/>
+                            <input type="text" class="text" name="KName" value="@item["KName"]" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">密码：</td>
+                            <td><input type="password" class="text" name="KPwd" value="@item["KPwd"]" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" id="smb" name="submit" value="修改" /></td>
+                        </tr>
+                        }
+                    </table>
+               }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿
+.back {
+    background: url(../images/product.jpg) 0px 0px;
+    width: 100%;
+    background-size: cover;
+    min-height: 200px;
+    display: block;
+    text-align: center;
+}
+.back h2 {
+  color: #fff;
+  font-size: 5em;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  padding: 1em 0;
+}
+.login-left {
+	padding: 0;
+}
+.login-left h3, .login-right h3 {
+	color: #ff5d56;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	font-weight: 600;
+	padding-bottom: 0.5em;
+	  font-family: 'Roboto Slab', serif;
+}
+.login-left p, .login-right p {
+	color: #555;
+	display: block;
+	font-size: 1.1em;
+	margin: 0 0 1em 0;
+	line-height: 1.8em;
+
+}
+.acount-btn {
+	background:#ff5d56;
+	color: #FFF;
+	font-size: 0.9em;
+	padding: 0.7em 1.2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border: 1px solid #ff5d56;
+}
+.acount-btn:hover, .login-right input[type="submit"]:hover{
+	background:none;
+	text-decoration:none;
+	border: 1px solid #000;
+	color: #000;
+}
+.login-right form {
+	padding: 1em 0;
+}
+.login-right form div {
+	padding: 0 0 1.5em 0;
+}
+.login-right span {
+	color: #000;
+	font-size:0.9em;
+	padding-bottom: 0.2em;
+	display: block;
+}
+.login-right input[type="text"] {
+	border: 1px solid #000;
+	outline:none;
+	width: 100%;
+	font-size:0.9em;
+	padding:10px;
+		
+}
+.login-right input[type="text"]:hover {
+		border: 1px solid #ff5d56;
+}
+.login-right input[type="submit"] {
+	background:#ff5d56;
+	color: #FFF;
+	font-size: 1em;
+	padding: 0.5em 1.2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+	outline:none;
+	border: 1px solid #ff5d56;
+}
+a.forgot {
+	font-size: 0.8125em;
+}
+.account_grid {
+	  width: 70%;
+  margin: 4em 0;
+}
+.bottom-grid1 {
+     background: url('../images/product2 (1).jpg')center;
+    background-size: 1000px 200px;
+    background-size: 126px;
+    width: 100%;
+    /* min-height: 311px; */
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    background-size: 1226px;
+    text-align: left;
+    padding: 1.5em;
+}
+.fit1 {
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 3em 9em;
+}
+.fit1 p{
+  font-size: 2.5em;
+  font-weight: 300;
+  line-height: 1.5em;
+  width: 80%;
+}
+.fit1 h3 {
+    font-size: 5em;
+    font-weight: 300;
+}
+.container {
+    font-size:12px;
+    padding-right: 15px;
+    padding-left: 80px;
+    margin-right: auto;
+    margin-left: auto;
+}

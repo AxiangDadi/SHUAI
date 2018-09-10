@@ -1,0 +1,124 @@
+﻿
+@{
+    Layout = null;
+}
+@using System.Data;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>picture_list</title>
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProductManager.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProCategory.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function show(id,sid) {
+            $("#myModal").modal(open);
+            $("#xlk").val(sid);
+            $("#tj").click(function () {
+                var StateId=$("#xlk").val();
+                window.location.href="../Frontdesk/Updatepicture_list?OrderNumber="+id+"&StateId="+StateId;
+            })
+        }
+
+
+        function deleteOne(id) {
+            var msg = "您真的确定要删除吗?";
+            if (confirm(msg) == true) {
+                window.location.href = "../Frontdesk/Delepicture_list?OrderNumber=" + id;
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <style type="text/css">
+        .modal-dialog {
+         width:362px;
+        }
+    </style>
+</head>
+<body>
+    <div class="manage">
+        <table  class="list">
+            <tr>
+                <th>订单编号</th>
+                <th>用户姓名</th>
+                <th>备注</th>
+                <th>用户电话</th>
+                <th>用户地址</th>
+                <th>物流状态</th>
+                <th>操作</th>
+            </tr>
+           @foreach (DataRow item in Model.Rows)
+           {
+            <tr>
+                <td>@item["OrderNumber"]</td>
+                <td>@item["OrderUserName"]</td>
+                <td>@item["OrderNote"]</td>
+                <td>@item["OrderUserPhone"]</td>
+                <td>@item["OrderUserAdd"]</td>
+                <td><input id="Text1" ondblclick="show('@item["OrderNumber"]','@item["Expr1"]')" type="text" value="@item["StateName"]" style="width:65px" /></td>
+                <td><a href="#" onclick="deleteOne('@item["OrderNumber"]')">删除</a></td>
+            </tr>
+           }
+        </table>
+        <div id="pageDiv">
+            <div id="leftPage">共有120条记录，当前第1/10页</div>
+            <div id="rightPage">
+
+                <input type="image" src="~/images/first.gif" id="first" />&nbsp;&nbsp;
+                <input type="image" src="~/images/back.gif" id="back" />&nbsp;&nbsp;
+                <input type="image" src="~/images/next.gif" id="next" />&nbsp;&nbsp;
+                <input type="image" src="~/images/last.gif" id="last" />&nbsp;&nbsp;
+                转到第<input type="text" id="ssas" size="1" />&nbsp;&nbsp;<input type="image" src="~/images/go.gif" id="tz" />
+            </div>
+        </div>
+    </div>
+    @*修改订单*@
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        修改订单
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <td>物流状态：
+                                <select id="xlk">
+                                
+                    @foreach (dynamic item in ViewBag.Xlk)
+                   {
+                                    <option value="@item.StateId">@item.StateName</option>
+                    }
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="tj">
+                        提交更改
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</body>
+</html>

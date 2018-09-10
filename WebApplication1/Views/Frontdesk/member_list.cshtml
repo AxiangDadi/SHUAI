@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>member_list</title>
+
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProCategory.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProductManager.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        function Update(id) {
+            window.location.href = "../Frontdesk/UpdateMember?UserID="+id;
+        }
+
+        function deleteOne(id) {
+            var msg = "您真的确定要删除吗?";
+            if (confirm(msg) == true) {
+                window.location.href = "../Frontdesk/memberDele?UserID=" + id;
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="manage">
+        <table class="list">
+            <tr>
+                <th>编号</th>
+                <th>用户名</th>
+                <th>真实姓名</th>
+                <th>邮箱</th>
+                <th>手机</th>
+                <th>操作</th>
+            </tr>
+            @foreach (Model.User item in ViewData.Model)
+            {
+                <tr>
+                    <td class="first w4 c">@item.UserID</td>
+                    <td class="thumb">@item.UserName </td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td class="w1 c"><a href="#" onclick="Update('@item.UserID')">修改</a> <a href="javascript:Delete(1);" onclick="deleteOne('@item.UserID')">删除</a></td>
+                </tr>
+            }
+            
+        </table>
+        </div>
+</body>
+</html>

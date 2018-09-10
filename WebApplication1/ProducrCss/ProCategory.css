@@ -1,0 +1,95 @@
+﻿.manage {
+    padding: 20px;
+    overflow: hidden;
+}
+
+    .manage .list {
+        width: 100%;
+        border-top: 2px solid #EEEEEE;
+        border-bottom: 2px solid #EEEEEE;
+    }
+
+        .manage .list th {
+            background: #EEEEEE;
+            color: #8a7152;
+        }
+
+        .manage .list td {
+            text-align: center;
+            padding: 5px;
+            border-top: 1px solid #EEEEEE;
+        }
+
+        .manage .list td {
+            border-left: 1px solid #EEEEEE;
+        }
+
+            .manage .list td.c {
+                text-align: center;
+            }
+
+            .manage .list td.first {
+                border-left: 0;
+            }
+
+            .manage .list td.childClass {
+                text-indent: 4em;
+            }
+
+            .manage .list td.w1 {
+                width: 80px;
+            }
+
+            .manage .list td.w2 {
+                width: 40px;
+            }
+
+            .manage .list td.w3 {
+                width: 200px;
+            }
+
+            .manage .list td.w4 {
+                width: 100px;
+            }
+
+            .manage .list td.thumb img {
+                border: 1px solid #dfdfe0;
+                margin: 0 10px;
+                vertical-align: middle;
+            }
+
+    .manage .form {
+        width: 100%;
+    }
+
+        .manage .form td {
+            padding: 5px 2px;
+        }
+
+            .manage .form td.field {
+                width: 150px;
+                text-align: right;
+            }
+
+            .manage .form td input.text {
+                width: 400px;
+                border: 1px solid #ccc;
+                padding: 4px;
+                vertical-align: middle;
+            }
+
+            .manage .form td input.tiny {
+                width: 50px;
+            }
+
+            .manage .form td textarea {
+                width: 400px;
+                border: 1px solid #ccc;
+                padding: 4px;
+                height: 80px;
+            }
+
+    .manage .shadow {
+        width: 500px;
+        margin: 50px auto;
+    }

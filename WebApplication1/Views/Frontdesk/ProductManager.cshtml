@@ -1,0 +1,160 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProductManager</title>
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProductManager.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProCategory.css" rel="stylesheet" />
+       <style type="text/css">
+            .modal-content {
+                width: 280px;
+            }
+        </style>
+  
+    <script type="text/javascript">
+       
+        //新增
+        function ADD() {
+            $("#myModal").modal(open);
+
+        }
+        //修改
+        function Update(name,id) {
+            $("#myModal1").modal(open);
+            $("#xg").val(name);
+            $("#id").val(id);
+          
+        }
+
+        function deleteOne(id) {
+            var msg = "您真的确定要删除吗?";
+            if (confirm(msg) == true) {
+                window.location.href = "../Frontdesk/DeleProductManager?TypeID="+id;
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="manage">
+      
+        <a href="#"  onclick="ADD(this)">新增类型</a>
+        <table class="list">
+            <tr>
+                <th>编号</th>
+                <th>类型</th>
+                <th>操作</th>
+            </tr>
+            
+           @foreach (Model.Type item in @ViewData.Model)
+            {
+                <tr>
+                   
+                    <td class="first w4 c">@item.TypeID</td>
+                    <td class="thumb">@item.TypeName</td>
+                    <td><a href="#" onclick="Update('@item.TypeName','@item.TypeID')">修改</a>&nbsp;<a href="#" onclick="deleteOne('@item.TypeID')">删除</a></td>
+                </tr>
+            }
+            
+        </table>
+        <div id="pageDiv">
+            <div id="leftPage">共有120条记录，当前第1/10页</div>
+            <div id="rightPage">
+
+                <input type="image" src="~/images/first.gif" id="first" />&nbsp;&nbsp;
+                <input type="image" src="~/images/back.gif" id="back" />&nbsp;&nbsp;
+                <input type="image" src="~/images/next.gif" id="next" />&nbsp;&nbsp;
+                <input type="image" src="~/images/last.gif" id="last" />&nbsp;&nbsp;
+                转到第<input type="text" id="ssas" size="1" />&nbsp;&nbsp;<input type="image" src="~/images/go.gif" id="tz" />
+            </div>
+        </div>
+    </div>
+    @*新增*@
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+             @using (Html.BeginForm("AddProductManager", "Frontdesk", FormMethod.Post))
+             {
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        新增商品类型
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <td  id="ll">商品类型:<input id="Text1" name="TypeName" type="text" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        关 闭
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        添 加
+                    </button>
+                </div>
+             }
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    @*修改*@
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+         @using (Html.BeginForm("UpdateProductManager", "Frontdesk", FormMethod.Post))
+         {
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        修改商品类型
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <table id="tab">
+                        <tr>
+                            <td><input id="id" name="TypeID" type="text" hidden="hidden" /></td>
+                            <td >商品类型:<input id="xg" name="TypeName" type="text" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" >
+                        提交更改
+                    </button>
+                </div>
+}
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</body>
+</html>

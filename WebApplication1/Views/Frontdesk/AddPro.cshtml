@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddPro</title>
+    <link href="~/ProducrCss/UpdatePro.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="main">
+            <h2>添加商品</h2>
+            <div class="manage">
+                @using (Html.BeginForm("TjAdd", "Frontdesk", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <form action="manage-result.html">
+                       
+                            <table class="form">
+                                <tr>
+                                    <td class="field">商品名称：</td>
+                                    <td>
+                                        <input type="text" class="text" name="GoodsName" value="" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">商品类别：</td>
+                                    <td>
+                                        <input type="text" value="" hidden="hidden" id="TypeID" />
+                                        <select name="TypeID" id="tid">
+                                            <option>请选择商品类型</option>
+                                            @foreach (dynamic item in ViewBag.Xlk1)
+                                            {
+                                                <option value="@item.TypeID">@item.TypeName</option>
+                                            }
+                                        </select>
+
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class="field">商品图片：</td>
+                                    <td>
+                                        <input type="text" hidden="hidden" name="GoodsPic" value="" />
+                                        <input type="file" class="text" name="files" id="GoodsPic" multiple />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="field">商品价格：</td>
+                                    <td><input type="text" class="text tiny" name="GoodsPrice" value="" /> 元</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="field">描述：</td>
+                                    <td>
+                                        <textarea cols="50" rows="10" name="GoodsNote"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><label class="ui-blue"><input type="submit" name="submit" value="添 加" id="xg" /></label></td>
+                                </tr>
+                            </table>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

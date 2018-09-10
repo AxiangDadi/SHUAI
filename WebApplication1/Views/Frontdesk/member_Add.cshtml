@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>member_Add</title>
+    <link href="~/ProducrCss/UpdatePro.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $("#smb").click(function () {
+                var userName = $("#UserName").val();
+                var UserPwd = $("#UserPwd").val();
+                var Name = $("#Name").val();
+                var Phone = $("#Phone").val();
+                var UserAdd = $("#UserAdd").val();
+                var Idcard = $("#Idcard").val();
+                var Email = $("#Email").val();
+
+                if (userName == "" || UserPwd == "" || Name == "" || Phone == "" || UserAdd == "" || Idcard == "" || Email == "") {
+                    alert("请输入完整的信息");
+                    return false;
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <div class="main">
+            <h2>添加用户</h2>
+            <div class="manage">
+     @using (Html.BeginForm("memberAdd", "Frontdesk", FormMethod.Post))
+     {
+                <form action="manage-result.html">
+                    <table class="form">
+                        <tr>
+                            <td class="field">用户名：</td>
+                            <td>
+                                
+                                <input type="text" class="text" name="UserName" id="UserName" value="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="field">密码：</td>
+                            <td><input type="password" class="text" name="UserPwd" id="UserPwd" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">性别：<input type="text" id="xlz" hidden="hidden" value="" /></td>
+                            <td><input type="radio" name="Sex" id="sex" value="男" checked="checked"/>男 <input type="radio" name="Sex" id="sexnv" value="女" />女</td>
+                        </tr>
+                        <tr>
+                            <td class="field">真实姓名：</td>
+                            <td><input type="text" class="text" name="Name" id="Name" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">手机号码：</td>
+                            <td><input type="text" class="text" name="Phone" id="Phone" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">送货地址：</td>
+                            <td><input type="text" class="text" name="UserAdd" id="UserAdd" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">身份证：</td>
+                            <td><input type="text" class="text" name="Idcard" id="Idcard" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">邮箱：</td>
+                            <td><input type="text" class="text" name="Email" id="Email" value="" /></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" id="smb" name="submit" value="修 改" /></td>
+                        </tr>
+                    </table>
+                </form>
+       }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

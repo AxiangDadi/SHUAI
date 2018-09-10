@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <!--控制器的信息-->
+  <object type="WebApplication1.Controllers.ThefrontdeskController, WebApplication1" singleton="false" >
+    <property name="sb" ref="UserServices" />
+  </object>
+
+  <object type="WebApplication1.Controllers.FrontdeskController, WebApplication1" singleton="false" >
+    <property name="ks" ref="KeeperServices" />
+  </object>
+
+
+  <object type="WebApplication1.Controllers.FrontdeskController, WebApplication1" singleton="false" >
+    <property name="ts" ref="TypeServices" />
+  </object>
+
+
+  <object type="WebApplication1.Controllers.FrontdeskController, WebApplication1" singleton="false" >
+    <property name="os" ref="OrderServices" />
+  </object>
+
+
+  <object type="WebApplication1.Controllers.FrontdeskController, WebApplication1" singleton="false" >
+    <property name="ss" ref="StateServices" />
+  </object>
+  
+  
+  <object type="WebApplication1.Controllers.FrontdeskController, WebApplication1" singleton="false" >
+    <property name="si" ref="SizeServices" />
+  </object>
+  
+  
+    <object type="WebApplication1.Controllers.FrontdeskController, WebApplication1" singleton="false" >
+    <property name="es" ref="EvaluationServices" />
+  </object>
+
+  <!--intentionally do NOT register the AccountController or the ValuesController with the container; demonstrates that the underlying
+  default controller factory will properly (attempt to!) resolve all controllers not registered with Spring.NET
+  using its default controller resolution behavoir-->
+  <!--<object type="Spring.Mvc4QuickStart.Controllers.AccountController, Spring.Mvc4QuickStart" singleton="false" />-->
+  <!--<object type="Spring.Mvc4QuickStart.Controllers.ValuesController, Spring.Mvc4QuickStart" singleton="false" />-->
+</objects>

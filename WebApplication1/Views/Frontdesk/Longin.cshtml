@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>登 录</title>
+    <link rel="stylesheet" type="text/css" href="~/css/styleLongin.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/bodyLongin.css" />
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/scripts.js"></script>
+  
+    <style type="text/css">
+        #KPwd {
+         background-position: 5px -52px;
+        }
+    </style>
+  
+
+</head>
+<body>
+    <div class="container">
+        <section id="content">
+            @using (Html.BeginForm("Dl", "Frontdesk", FormMethod.Post))
+            {
+
+                <form action="" id="from">
+                    <h1>管理员登录</h1>
+                    <div>
+                        <input type="text" placeholder="用户名" required="" id="KName" name="KName" class="KName"/>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="密码" required="" id="KPwd" name="KPwd" class="KPwd" style="background-position: 5px -52px" />
+                    </div>
+                    <div class="">
+                        <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
+                    </div>
+                    <div>
+                        <!-- <input type="submit" value="Log in" /> -->
+                        <input type="submit" value="登 录" class="btn btn-primary" id="js-btn-login" />
+                    
+                        <!-- <a href="#">Register</a> -->
+                    </div>
+                </form><!-- form -->
+            }
+        </section><!-- content -->
+    </div>
+    <!-- container -->
+
+
+    <br><br><br><br>
+    <div style="text-align:center;">
+        <p>来源:CSSL 11W <a href="#" target="_blank" title="模板之家">大帅比</a> - <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">帅</a></p>
+    </div>
+</body>
+</html>

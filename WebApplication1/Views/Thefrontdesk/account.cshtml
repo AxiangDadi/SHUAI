@@ -1,0 +1,332 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>account</title>
+    <script type="applijegleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <!-- start menu -->
+    <link href="~/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/js/megamenu.js"></script>
+    <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+    <script src="~/js/menu_jquery.js"></script>
+    <script src="~/js/simpleCart.min.js"> </script>
+    <!--web-fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700' rel='stylesheet' type='text/css'>
+    <!--//web-fonts-->
+    <script src="~/js/scripts.js" type="text/javascript"></script>
+    <script src="~/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="~/js/move-top.js"></script>
+    <script type="text/javascript" src="~/js/easing.js"></script>
+    <!--/script-->
+    <script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+			function Show(id) {
+			    window.location.href = "../Thefrontdesk/product?TypeID=" + id;
+			}
+    </script>
+    <style type="text/css">
+        .account {
+            background-image: url('../../images/bg_2.jpg');
+                background-position: -390px;
+    background-position-y: -485px;
+        }
+     
+        #long a{
+         color:#ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!--start-home-->
+    <!-- header_top -->
+    <div class="top_bg" id="home">
+        <div class="container">
+            <div class="header_top">
+                <div class="top_right">
+                    <ul>
+                        <li><a href="#">help</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Delivery information</a></li>
+                    </ul>
+                </div>
+                <div class="top_left">
+                    <h6><span id="long">@{if (Session["name"] != null)
+                        {
+                            string name = Session["name"].ToString(); <a href="T_Login" style="color:#fff">欢迎您! @name</a> }
+                        else
+                        {<a href="T_Login" style="color:#fff">登录</a> } } | <a href="account" style="color:#fff">注册</a></span></h6>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- header -->
+    <div class="header_bg">
+        <div class="container">
+            <div class="header">
+                <div class="head-t">
+                    <div class="logo">
+                        <a href="index.html"><h1>Clothing <span>Shop</span></h1></a>
+                    </div>
+                    <div class="header_right">
+                        <div class="cart box_1">
+                            <a href="checkout.html">
+                                <div class="total">
+                                    <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                                </div>
+                                <i class="glyphicon glyphicon-shopping-cart"></i>
+                            </a>
+                            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!--start-header-menu-->
+                <ul class="megamenu skyblue">
+                    <li class="active grid"><a class="color1" href="Index">首页</a></li>
+                    @foreach (var item in ViewBag.Lx)
+                    {
+                        <li class="grid" id="grid">
+                            <a class="color2" href="#" onclick="Show('@item.TypeID')">@item.TypeName</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--start-content-->
+    <!--account-->
+
+    <!--注册脚本，非空判断-->
+    <script type="text/javascript">
+        $(function () {
+            $("#zhuce").click(function () {
+                if (UserName.value == "" || RName.value == "" || Email.value == "" || UserPwd.value == "" || RUserPwd.value=="") {
+                    alert("请填写完整信息！");
+                    return false;
+                }
+            })
+        })
+    </script>
+    <div class="account">
+        <div class="container">
+            <div class="account-bottom">
+                <div class="col-md-6 account-left">
+@using (Html.BeginForm("zhuce", "Thefrontdesk", FormMethod.Post))
+{
+                    <form>
+                        <div class="account-top heading">
+                            <h3>注册新用户</h3>
+                        </div>
+                        <div class="address">
+                            <span>用户昵称</span>
+                            <input type="text" placeholder="请输入用户昵称" id="UserName" name="UserName">
+                        </div>
+                        <div class="address">
+                            <span>真实姓名</span>
+                            <input type="text" placeholder="请输入真实姓名"id="RName" name="RName">
+                        </div>
+                        <div class="address">
+                            <span>邮箱地址</span>
+                            <input type="text" placeholder="请输入邮箱地址"id="Email" name="Email">
+                        </div>
+                        <div class="address">
+                            <span>密码</span>
+                            <input type="password" placeholder="请输入密码" id="UserPwd" name="UserPwd">
+                        </div>
+                        <div class="address">
+                            <span>重复密码</span>
+                            <input type="password" placeholder="请输入重复密码" id="RUserPwd" name="RUserPwd">
+                        </div>
+                        <div class="address new">
+                            <input type="submit" value="提 交" id="zhuce"name="zhuce">
+                        </div>
+                    </form>
+}
+                </div>
+                <div class="col-md-6 account-left second">
+                    @*<form>
+                        <div class="account-top heading">
+                            <h3>REGISTERED CUSTOMERS</h3>
+                        </div>
+                        <div class="address">
+                            <span>Email Address</span>
+                            <input type="text">
+                        </div>
+                        <div class="address">
+                            <span>Password</span>
+                            <input type="password">
+                        </div>
+                        <div class="address">
+                            <a class="forgot" href="#">Forgot Your Password?</a>
+                            <input type="submit" value="Login">
+                        </div>
+                    </form>*@
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- checkout -->
+    <!--start-bottom-->
+    <!--start-image-cursuals-->
+    <div class="scroll-slider">
+        <div class="container">
+            <div class="nbs-flexisel-container">
+                <div class="nbs-flexisel-inner">
+                    <ul class="flexiselDemo3 nbs-flexisel-ul" style="left: -253.6px; display: block;">
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c3.png" alt="" /></li>
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c4.png" alt="" /></li>
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c1.png" alt="" /></li>
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c2.png" alt="" /></li>
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c3.png" alt="" /></li>
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c4.png" alt="" /></li>
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c1.png" alt="" /></li>
+                        <li onclick="location.href='#';" class="nbs-flexisel-item" style="width: 253.6px;"><img src="~/images/c2.png" alt="" /></li>
+                    </ul><div class="nbs-flexisel-nav-left" style="top: 21.5px;"></div><div class="nbs-flexisel-nav-right" style="top: 21.5px;"></div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <!--start-image-->
+            <script type="text/javascript" src="~/js/jquery.flexisel.js"></script>
+            <!--//end-->
+            <script type="text/javascript">
+								$(window).load(function() {
+								    $(".flexiselDemo3").flexisel({
+								        visibleItems: 5,
+								        animationSpeed: 1000,
+								        autoPlay: true,
+								        autoPlaySpeed: 3000,
+								        pauseOnHover: true,
+								        enableResponsiveBreakpoints: true,
+								        responsiveBreakpoints: {
+								            portrait: {
+								                changePoint:480,
+								                visibleItems: 2
+								            },
+								            landscape: {
+								                changePoint:640,
+								                visibleItems: 3
+								            },
+								            tablet: {
+								                changePoint:768,
+								                visibleItems: 3
+								            }
+								        }
+								    });
+								});
+            </script>
+            <!---->
+        </div>
+    </div>
+    <!--//end-bottom-->
+    <!--start-footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="col-md-2 footer-left">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">我们是谁</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="#">我们的网站</a></li>
+                        <li><a href="#">在新闻中</a></li>
+                        <li><a href="#">Carrers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 footer-left">
+                    <h3>你的账户</h3>
+                    <ul>
+                        <li><a href="account.html">你的帐户</a></li>
+                        <li><a href="#">个人信息</a></li>
+                        <li><a href="contact.html">地址</a></li>
+                        <li><a href="#">折扣</a></li>
+                        <li><a href="#">追踪您的订单</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 footer-left">
+                    <h3>购物</h3>
+                    <ul>
+                        <li><a href="#">饰品</a></li>
+                        <li><a href="#">图书</a></li>
+                        <li><a href="#">布</a></li>
+                        <li><a href="#">手袋</a></li>
+                        <li><a href="#">鞋</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 footer-left ">
+                    <h3>分类</h3>
+                    <ul>
+                        <li><a href="#">运动鞋</a></li>
+                        <li><a href="#">休闲短裤</a></li>
+                        <li><a href="#">正式鞋</a></li>
+                        <li><a href="#">派对服装</a></li>
+                        <li><a href="#">民族服饰</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 footer-left lost">
+                    <h3>生活方式</h3>
+                    <ul>
+                        <li><a href="#">温泉</a></li>
+                        <li><a href="#">美女</a></li>
+                        <li><a href="#">旅行</a></li>
+                        <li><a href="#">餐饮</a></li>
+                        <li><a href="#">趋势</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+    </div>
+    <ul class="socials">
+        <li><a class="soc1" href="#"></a></li>
+        <li><a class="soc2" href="#"></a></li>
+        <li><a class="soc3" href="#"></a></li>
+    </ul>
+    <!--/start-copyright-->
+    <div class="copy">
+        <div class="container">
+            <p>&copy; 2015 Nuevo Shop. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+        </div>
+    </div>
+    <!--//end-copyright-->
+    <!--end-footer-->
+    <!--//end-content-->
+    <!--start-smooth-scrolling-->
+    <script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear'
+								 		};
+										*/
+
+										$().UItoTop({ easingType: 'easeOutQuart' });
+
+									});
+    </script>
+    <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>

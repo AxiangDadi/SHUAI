@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UpdateAdmin</title>
+    <link href="~/ProducrCss/UpdatePro.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var sex = $("#xlz").val();
+            if (sex == '男') {
+                $("#sex").attr("checked", "true");
+            } else {
+                $("#sexnv").attr("checked", "true");
+            }
+
+            $("#smb").click(function () {
+                var userName = $("#UserName").val();
+                var UserPwd = $("#UserPwd").val();
+                var Name = $("#Name").val();
+                var Phone = $("#Phone").val();
+                var UserAdd = $("#UserAdd").val();
+                var Idcard = $("#Idcard").val();
+                var Email = $("#Email").val();
+
+                if (userName == "" || UserPwd == "" || Name == "" || Phone == "" || UserAdd == "" || Idcard == "" || Email == "") {
+                    alert("请输入完整的信息");
+                    return false;
+                }
+            })
+           
+        })
+    </script>
+</head>
+<body>
+    <div>
+        
+        <div class="main">
+            <h2>修改用户</h2>
+            <div class="manage">
+             @using (Html.BeginForm("Updademeberlist", "Frontdesk", FormMethod.Post))
+             {
+                <form action="manage-result.html">
+                    @foreach (Model.User item in ViewData.Model)
+                    {
+                    <table class="form">
+                        <tr>
+                            <td class="field">用户名：</td>
+                            <td><input type="text" class="text" name="UserID" id="UserID" value="@item.UserID" hidden="hidden" />
+                            <input type="text" class="text" name="UserName" id="UserName" value="@item.UserName" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">密码：</td>
+                            <td><input type="password" class="text" name="UserPwd" id="UserPwd" value="@item.UserPwd" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">性别：<input type="text" id="xlz" hidden="hidden" value="@item.Sex" /></td>
+                            <td><input type="radio" name="Sex" id="sex" value="男"  />男 <input type="radio" name="Sex" id="sexnv" value="女" />女</td>
+                        </tr>
+                        <tr>
+                            <td class="field">真实姓名：</td>
+                            <td><input type="text" class="text" name="Name" id="Name" value="@item.Name" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">手机号码：</td>
+                            <td><input type="text" class="text" name="Phone" id="Phone" value="@item.Phone" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">送货地址：</td>
+                            <td><input type="text" class="text" name="UserAdd" id="UserAdd" value="@item.UserAdd" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">身份证：</td>
+                            <td><input type="text" class="text" name="Idcard" id="Idcard" value="@item.Idcard" /></td>
+                        </tr>
+                        <tr>
+                            <td class="field">邮箱：</td>
+                            <td><input type="text" class="text" name="Email" id="Email" value="@item.Email" /></td>
+                        </tr>
+                      
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" id="smb" name="submit" value="修 改" /></td>
+                        </tr>
+                    </table>
+                    }
+                </form>
+             }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

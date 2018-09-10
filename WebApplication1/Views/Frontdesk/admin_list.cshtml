@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>admin_list</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProCategory.css" rel="stylesheet" />
+    <link href="~/ProducrCss/ProductManager.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function show() {
+            $("#myModal").modal(open);
+            $(function () {
+                $("#tj").click(function () {
+                    if ($("#KName").val() == "" || $("#KPwd").val() == "" || $("#rPwd").val() == "") {
+                        alert("所有选项不能为空！");
+                    } else if ($("#rPwd").val() != $("#KPwd").val()) {
+                        alert("确认密码不一致！");
+                    } else {
+                        var name = $("#KName").val();
+                        var pwd = $("#KPwd").val();
+                        window.location.href = "../Frontdesk/AddGuanliyuan?KName="+name+"&KPwd="+pwd;
+                    } 
+                })
+            })
+        }
+        function shanchu(id){
+            if (confirm("确定要删除吗？")) {
+                window.location.href = "../Frontdesk/DeleteAdmin?KID="+id;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="manage">
+        <a href="#" onclick="show()">添加</a>
+        <table class="list">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>操作</th>
+            </tr>
+            @foreach (Model.Keeper item in @ViewData.Model)
+            {
+            <tr>
+                <td class="first w4 c">@item.KID</td>
+                <td class="thumb">@item.KName</td>
+                <td class="thumb">@item.KPwd</td>
+                <td class="w1 c"><a href="UpdateAdmin?KID=@item.KID">修改</a> <a href="#" onclick="shanchu(@item.KID)">删除</a></td>
+            </tr>
+            }
+        </table>
+    </div>
+
+    @*新增管理员*@
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div  style="width:520px;" class="modal-dialog" >
+            <div class="modal-content">
+                <from id="Keeper">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            新增管理员
+                        </h4>
+                    </div>
+                    <div>
+                        <div class="main">
+                            <div class="manage">
+                                @*@using (Html.BeginForm("AddGuanliyuan", "Frontdesk", FormMethod.Post))
+                        {*@
+                                <table class="form">
+                                    <tr>
+                                        <td class="field">用户名：</td>
+
+                                        <td>
+                                            <input type="text" class="text" name="KID" id="KID" value="" hidden="hidden" />
+                                            <input type="text" class="text" name="KName" id="KName" value="" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="field">密码：</td>
+                                        <td><input type="password" class="text" name="KPwd" id="KPwd" value="" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="field">确认密码：</td>
+                                        <td><input type="password" class="text" name="rPwd" id="rPwd" value="" /></td>
+                                    </tr>
+                                </table>
+                                @*}*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            关闭
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="tj">
+                            提交更改
+                        </button>
+                    </div>
+                </from>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</body>
+</html>
