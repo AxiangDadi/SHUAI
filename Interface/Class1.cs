@@ -10,6 +10,7 @@ namespace Interface
     {
         public void ShowYourMoth() {
             Console.WriteLine("哇");
+
           }
     }
 }
