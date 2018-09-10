@@ -11,6 +11,7 @@ namespace Interface
         public void ShowYourMoth() {
             Console.WriteLine("哇");
             Console.WriteLine("aaa");
+            Console.WriteLine("我还要测试一遍");
           }
     }
 }
