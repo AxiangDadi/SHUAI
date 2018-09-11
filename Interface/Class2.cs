@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    class Class2
+    public class Class2
     {
+        public void s() {
+          
+            
+        }
+            
     }
 }
