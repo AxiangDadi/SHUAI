@@ -12,9 +12,9 @@ namespace Interface
             Console.WriteLine("我还要测试一遍");
             Console.WriteLine("刘坤是煞笔");
             Console.WriteLine("刘坤是煞笔");
-            
 
 
+            Console.WriteLine("s");
 
         }
     }
