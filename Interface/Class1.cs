@@ -10,6 +10,7 @@ namespace Interface
     {
         public void ShowYourMoth() {
             Console.WriteLine("我还要测试一遍");
+            Console.WriteLine("我是你爸爸，没问题吧！");
         }
     }
 }
