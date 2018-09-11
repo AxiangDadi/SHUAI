@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interface
 {
-    class Class1
+    class Class3
     {
-        public void ShowYourMoth() {
-            Console.WriteLine("我还要测试一遍");
-        }
     }
 }
