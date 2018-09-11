@@ -9,7 +9,8 @@ namespace Interface
     public class Class2
     {
         public void s() {
-            Console.WriteLine("123456");
+          
+            
         }
             
     }
