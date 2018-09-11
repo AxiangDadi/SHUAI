@@ -9,8 +9,8 @@ namespace Interface
     public class Class2
     {
         public void s() {
-          
-            
+
+            jhloko;
         }
             
     }
