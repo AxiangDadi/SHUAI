@@ -230,6 +230,13 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Test\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Test\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\controllers.xml">
@@ -584,6 +591,7 @@
     <Content Include="tp\258634613.jpg" />
     <Content Include="tp\366304987.jpg" />
     <Content Include="tp\369537659.jpg" />
+    <Content Include="Views\Test\WebForm1.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -656,7 +664,6 @@
     <Folder Include="lib\zTree\" />
     <Folder Include="temp\" />
     <Folder Include="testaxiang\" />
-    <Folder Include="Views\Test\" />
     <Folder Include="商品素材\" />
   </ItemGroup>
   <ItemGroup>
