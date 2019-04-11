@@ -656,6 +656,7 @@
     <Folder Include="lib\zTree\" />
     <Folder Include="temp\" />
     <Folder Include="testaxiang\" />
+    <Folder Include="Views\Test\" />
     <Folder Include="商品素材\" />
   </ItemGroup>
   <ItemGroup>
